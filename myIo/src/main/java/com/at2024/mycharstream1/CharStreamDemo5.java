@@ -1,6 +1,5 @@
 package com.at2024.mycharstream1;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
