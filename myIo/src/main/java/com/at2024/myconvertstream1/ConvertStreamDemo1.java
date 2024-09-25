@@ -27,7 +27,7 @@ public class ConvertStreamDemo1 {
 
 /*
         //jdk11之后，FileReader更新了新的指定编码读取的方法
-        FileReader fr = new FileReader("D:\\TyporaPDF\\Work2024\\gbkfile.txt", "GBK");
+        FileReader fr = new FileReader("D:\\TyporaPDF\\Work2024\\gbkfile.txt", Charset.forName("GBK"));
         //开始读取
         int ch;
         while ((ch = fr.read()) != -1) {
