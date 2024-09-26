@@ -11,8 +11,13 @@ import java.io.Serializable;
  * 理解：   一个物品的合格证
  */
 public class Student implements Serializable {
+    //版本号，JVM会使用这个固定的版本号，而不是在javaBean改动之后，会发生变化
+    //可以直接在idea中的setting中搜索Serializable，点击勾选
+    private static final long serialVersionUID = 897832450906807318L;
     private String name;
     private int age;
+
+    private String address;
 
     public Student(String name, int age) {
         this.name = name;

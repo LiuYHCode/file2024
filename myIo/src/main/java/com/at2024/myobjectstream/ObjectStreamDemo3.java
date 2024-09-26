@@ -1,21 +1,19 @@
 package com.at2024.myobjectstream;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  * @author lyh
  * @date 2024-09-25 23:48:02
  */
-public class ObjectStreamDemo2 {
+public class ObjectStreamDemo3 {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         /**
-         * 利用反序列化流/对象操作输入流，把文件中的对象读到程序中
-         *
-         * 构造方法：
-         *      ObjectInputStream(InputStream in);     //把基本流变为高级流
-         *
-         * 成员方法
-         *      writeObject(Object obj)     //把对象序列化到文件中去
+         * 序列化流的一些小细节
+         * 1.如果写出了序列化对象到文件中，我们对javaBean进行修改，再使用反序列化流去读取的话就会报错
+         *      这个情况，可以在javaBean中指定一个固定的版本号解决
          */
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("myIo\\f.txt"));
         Object o = ois.readObject();
