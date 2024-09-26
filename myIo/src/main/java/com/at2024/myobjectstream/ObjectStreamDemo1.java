@@ -21,7 +21,7 @@ public class ObjectStreamDemo1 {
          */
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("myIo\\f.txt"));
 
-        Student student = new Student("大拇哥", 18);
+        Student student = new Student("大拇哥", 18, "江西");
 
         oos.writeObject(student);
 

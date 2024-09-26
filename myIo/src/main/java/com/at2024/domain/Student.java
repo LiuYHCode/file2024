@@ -17,11 +17,13 @@ public class Student implements Serializable {
     private String name;
     private int age;
 
-    private String address;
+    //transient修饰的属性不会被序列化，保证了数据的隐私
+    private transient String address;
 
-    public Student(String name, int age) {
+    public Student(String name, int age, String address) {
         this.name = name;
         this.age = age;
+        this.address = address;
     }
 
     public String getName() {
@@ -40,11 +42,20 @@ public class Student implements Serializable {
         this.age = age;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
