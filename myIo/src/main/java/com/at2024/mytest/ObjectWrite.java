@@ -3,6 +3,8 @@ package com.at2024.mytest;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lyh
@@ -19,9 +21,12 @@ public class ObjectWrite {
         Students s2 = new Students("tst", 18, "hz");
         Students s3 = new Students("zh", 18, "hz");
 
-        oos.writeObject(s1);
-        oos.writeObject(s2);
-        oos.writeObject(s3);
+        List<Students> stuList = new ArrayList<>();
+        stuList.add(s1);
+        stuList.add(s2);
+        stuList.add(s3);
+
+        oos.writeObject(stuList);
 
         oos.close();
     }

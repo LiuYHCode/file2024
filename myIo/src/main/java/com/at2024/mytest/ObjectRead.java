@@ -3,6 +3,7 @@ package com.at2024.mytest;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.List;
 
 /**
  * @author lyh
@@ -11,17 +12,14 @@ import java.io.ObjectInputStream;
 public class ObjectRead {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //v1.0 在明确知道写入几个对象的情况下，这样子获取是可以的，但是如果不知道对象数量，数量超出会报EOF
+        //v2.0 添加到List集合中写入文件
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("myIo\\a.txt"));
 
-        Students s1 = (Students) ois.readObject();
-        Students s2 = (Students) ois.readObject();
-        Students s3 = (Students) ois.readObject();
-//        Students s4 = (Students) ois.readObject();//EOFException
+        List<Students> stuList = (List<Students>) ois.readObject();
 
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-
+        for (Students students : stuList) {
+            System.out.println(students);
+        }
         ois.close();
     }
 }
